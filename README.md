@@ -3,12 +3,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Technologies used:
-React
-Material UI
-Redux
-Fetch API - AXIOS
-React testing tools / Jest
-Redux forms
+React,
+Material UI,
+Redux,
+Fetch API - AXIOS,
+React testing tools / Jest,,
+Redux forms,
 
 
 ## Available Scripts
