@@ -5,7 +5,7 @@ const initialState={
     loading:true
 }
 
-const usersReducers  =(state = initialState,actions)=>{
+const usersReducers  =(state:any = initialState,actions:any)=>{
     switch(actions.type){
         case types.GET_USERS:
             return{

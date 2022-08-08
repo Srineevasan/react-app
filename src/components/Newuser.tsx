@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { newUser} from "../redux/actions";
 const Newuser = () => {
   const { register, handleSubmit} = useForm();
-  const onSubmit = data => {
+  const onSubmit = (data: any) => {
     dispatch(newUser(data));
     navigate("/");
   }

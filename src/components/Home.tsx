@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,FC} from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,6 +12,7 @@ import Paper from '@mui/material/Paper';
 import { useDispatch, useSelector } from "react-redux";
 import { loadUsers, deleteUser } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+import {RootState} from "../redux/store"
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -34,15 +35,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   }));
   
   
-const Home = () => {
+const Home:FC = () => {
   let dispatch=useDispatch();
   let navigate = useNavigate();
-  const {users} = useSelector(state => state.data)
+  const {users} = useSelector((state:RootState)  => state.data)
   useEffect(()=>{
     dispatch(loadUsers());
   },[])
   
-  const handleDelete = (id) =>{
+  const handleDelete = (id:number) =>{
     dispatch(deleteUser(id));
   }
 
@@ -65,7 +66,7 @@ const Home = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {users && users.map((row) => (
+          {users && users.map((row:any) => (
             <StyledTableRow key={row.id}>
               <StyledTableCell align="center">{row.name}</StyledTableCell>
               <StyledTableCell align="center">{row.email}</StyledTableCell>

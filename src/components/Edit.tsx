@@ -8,12 +8,17 @@ import axios from "axios";
 
 const Edit = () => {
   const { register, handleSubmit} = useForm();
-  const [val,getVal]=useState([]);
+  const [val,getVal]=useState({
+    name:"",
+    email:"",
+    phone:""
+
+  });
   const [val1,getVal1]=useState([]);
   let dispatch=useDispatch();
   let navigate=useNavigate();
   let {id}=useParams();
-  const onSubmit = data => {
+  const onSubmit = (data: any) => {
     dispatch(editUser(id,data));
     navigate("/");
   }
@@ -23,6 +28,7 @@ const Edit = () => {
     axios.get(`https://jsonplaceholder.typicode.com/users/${id}`).then((res)=>{getVal1(res.data.address)})
         .catch((err)=>console.log(err.response.data.error));   
   },[])
+
   return (
     <div id='form_div' className='container card p-0 mt-5'>
     <h1 className='card-header text-start fs-5'>Edit User</h1>

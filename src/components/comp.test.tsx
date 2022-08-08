@@ -5,7 +5,8 @@ import {BrowserRouter} from 'react-router-dom';
 import Edit from "./Edit";
 import Newuser from "./Newuser";
 import { Provider } from 'react-redux';
-import store from "../redux/store"
+import store from "../redux/store";
+
 test("user input",()=>{
     render(<Provider store={store}><Edit/></Provider>, {wrapper: BrowserRouter});
     const unerInputEl= screen.getByPlaceholderText("name");
@@ -47,3 +48,5 @@ test("user input",()=>{
     const unerInputEl= screen.getByPlaceholderText("Address");
     expect(unerInputEl).toBeInTheDocument()
 })
+
+
