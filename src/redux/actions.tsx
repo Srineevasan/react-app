@@ -1,6 +1,5 @@
 import * as types from "./actionType";
 import axios from "axios";
-import {useState} from "react";
 
 const getusers =(users:any)=>({
     type: types.GET_USERS,
